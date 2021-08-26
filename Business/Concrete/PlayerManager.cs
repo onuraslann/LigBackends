@@ -66,12 +66,13 @@ namespace Business.Concrete
 
         private IResult CheckIfTeamId(int teamId)
         {
-            var result = _playerDal.GetAll(x => x.LeagueId == teamId).Count;
+            var result = _playerDal.GetAll(x => x.TeamsId == teamId).Count;
             if (result > 1)
             {
                 return new ErrorResult();
             }
             return new SuccessResult();
         }
+        
     }
 }
