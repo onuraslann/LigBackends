@@ -18,14 +18,10 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<PlayerManager>().As<IPlayerService>().SingleInstance();
             builder.RegisterType<EfPlayerDal>().As<IPlayerDal>().SingleInstance();
-
             builder.RegisterType<LeagueManager>().As<ILeagueService>().SingleInstance();
-
             builder.RegisterType<EfLeagueDal>().As<ILeagueDal>().SingleInstance();
-
             builder.RegisterType<FixtureManager>().As<IFixtureService>().SingleInstance();
             builder.RegisterType<EfFixtureDal>().As<IFixtureDal>().SingleInstance();
-
             builder.RegisterType<TeamManager>().As<ITeamService>().SingleInstance();
             builder.RegisterType<EfTeamDal>().As<ITeamDal>().SingleInstance();
 

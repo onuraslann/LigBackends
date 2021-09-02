@@ -31,5 +31,6 @@ namespace Core.Aspects.Validation
                 ValidationTool.Validate(validator, entity);
             }
         }
+      
     }
 }

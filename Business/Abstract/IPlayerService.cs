@@ -15,6 +15,7 @@ namespace Business.Abstract
         IDataResult<List<Player>> GetByTeamId(int id);
 
         IDataResult<List<Player>> GetByAge(int age);
+
         IResult Delete(Player player);
     }
 }

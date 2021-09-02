@@ -43,7 +43,7 @@ namespace WepAPI
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
 
             app.UseAuthorization();

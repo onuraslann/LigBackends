@@ -8,10 +8,11 @@ namespace Business.Constants
     {
         public static string LeagueAdded = "Lig başarıyla eklendi";
         public static string FixtureList = "Fixture Listelendi";
-
         public static string FixtureDelete = "Fixture Silindi";
         public static string TeamAdded = "Takım Eklendi";
         public static string TeamList = "Takımlar Listelendi";
         public static object TeamsLeagueIdMesage = "Numaralı Lig Listelendi";
+        public static string PlayerDeleted = "Oyuncu Silindi";
+        public static string PlayerAdded = "Oyuncu Eklendi";
     }
 }
