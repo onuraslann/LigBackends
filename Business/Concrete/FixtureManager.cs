@@ -18,6 +18,7 @@ namespace Business.Concrete
             _fixtureDal = fixtureDal;
         }
 
+   
         public IResult Add(Fixture fixture)
         {
             fixture.MatchDate = DateTime.Now;

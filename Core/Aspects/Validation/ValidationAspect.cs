@@ -16,7 +16,7 @@ namespace Core.Aspects.Validation
         {
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new System.Exception("Bir doğrulama sınıfı değil"); 
+                throw new System.Exception("Bir doğrulama sınıfı değil");
             }
 
             _validatorType = validatorType;
@@ -30,7 +30,9 @@ namespace Core.Aspects.Validation
             {
                 ValidationTool.Validate(validator, entity);
             }
-        }
+
+
       
+        }
     }
 }

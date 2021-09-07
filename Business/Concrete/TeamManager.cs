@@ -2,7 +2,6 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
-using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
@@ -48,16 +47,14 @@ namespace Business.Concrete
 
         public IDataResult<List<Team>> GetByLeagueId(int leagueid)
         {
-            return new SuccessDataResult<List<Team>>(_teamDal.GetAll(x=> x.LeagueId==leagueid));
-     
+            return new SuccessDataResult<List<Team>>(_teamDal.GetAll(x=>x.LeagueId==leagueid), Messages.TeamList);
         }
-
         private IResult CheckIfTeamNameExist(string name)
         {
             var result = _teamDal.GetAll(x => x.TeamName == name).Any();
-            if(result)
+            if (result)
             {
-                return new ErrorResult();
+                return new ErrorResult(Messages.AlreadyExist);
             }
             return new SuccessResult();
         }

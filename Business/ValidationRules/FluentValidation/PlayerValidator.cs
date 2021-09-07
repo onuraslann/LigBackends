@@ -6,13 +6,14 @@ using System.Text;
 
 namespace Business.ValidationRules.FluentValidation
 {
-   public  class PlayerValidator:AbstractValidator<Player>
+    public class PlayerValidator:AbstractValidator<Player>
     {
         public PlayerValidator()
         {
-            RuleFor(p => p.Number).LessThanOrEqualTo(99).WithMessage("Numara Sayısı max 99 olur");
+            RuleFor(p => p.FirstName).NotEmpty();
             RuleFor(p => p.Age).LessThanOrEqualTo(42);
-            RuleFor(p => p.PositionName).NotEmpty();
+            RuleFor(p => p.Number).LessThanOrEqualTo(99);
         }
+
     }
 }

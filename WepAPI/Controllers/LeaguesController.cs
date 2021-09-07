@@ -13,6 +13,7 @@ namespace WepAPI.Controllers
     [ApiController]
     public class LeaguesController : ControllerBase
     {
+
         ILeagueService _leagueService;
 
         public LeaguesController(ILeagueService leagueService)
@@ -21,7 +22,6 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getall")]
-
         public IActionResult GetAll()
         {
             var result = _leagueService.GetAll();
@@ -38,7 +38,7 @@ namespace WepAPI.Controllers
             var result = _leagueService.Add(league);
             if (result.Success)
             {
-                return Ok(league);
+                return Ok(result);
 
             }
             return BadRequest(result);
@@ -50,7 +50,7 @@ namespace WepAPI.Controllers
             var result = _leagueService.Delete(league);
             if (result.Success)
             {
-                return Ok(league);
+                return Ok(result);
 
             }
             return BadRequest(result);
@@ -58,3 +58,4 @@ namespace WepAPI.Controllers
         }
     }
 }
+

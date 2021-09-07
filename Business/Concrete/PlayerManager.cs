@@ -2,7 +2,6 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
-using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
@@ -23,10 +22,10 @@ namespace Business.Concrete
             _playerDal = playerDal;
         }
 
+     
         [ValidationAspect(typeof(PlayerValidator))]
         public IResult Add(Player player)
         {
-           
             IResult result = BusinessRules.Run(CheckIfLeagueId(player.LeagueId), CheckIfTeamId(player.TeamsId));
             if (result != null)
             {
@@ -65,7 +64,6 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
-
         private IResult CheckIfTeamId(int teamId)
         {
             var result = _playerDal.GetAll(x => x.TeamsId == teamId).Count;
@@ -75,6 +73,8 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
-        
+
+
+
     }
 }

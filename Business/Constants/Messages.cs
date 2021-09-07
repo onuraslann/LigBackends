@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -14,5 +15,7 @@ namespace Business.Constants
         public static object TeamsLeagueIdMesage = "Numaralı Lig Listelendi";
         public static string PlayerDeleted = "Oyuncu Silindi";
         public static string PlayerAdded = "Oyuncu Eklendi";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string AlreadyExist = "Aynı isimden eklenemez";
     }
 }

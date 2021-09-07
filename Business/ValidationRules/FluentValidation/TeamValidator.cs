@@ -6,12 +6,11 @@ using System.Text;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class TeamValidator:AbstractValidator<Team>
+   public class TeamValidator:AbstractValidator<Team>
     {
         public TeamValidator()
         {
-            RuleFor(t => t.TeamName).NotEmpty();
-
+            RuleFor(t => t.TeamName).NotEmpty().WithMessage("Takım ismi boş geçilemez");
         }
     }
 }
