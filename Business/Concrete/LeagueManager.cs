@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
@@ -23,7 +24,7 @@ namespace Business.Concrete
             _leagueDal = leagueDal;
             _teamService = teamService;
         }
-
+        [SecuredOperation("admin,editör")]
         [ValidationAspect(typeof(LeagueValidator))]
         public IResult Add(League league)
         {

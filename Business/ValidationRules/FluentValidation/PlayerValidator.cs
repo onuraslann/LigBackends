@@ -8,6 +8,7 @@ namespace Business.ValidationRules.FluentValidation
 {
     public class PlayerValidator:AbstractValidator<Player>
     {
+     
         public PlayerValidator()
         {
             RuleFor(p => p.FirstName).NotEmpty();
