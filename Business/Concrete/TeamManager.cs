@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Caching;
 using Core.Aspects.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
@@ -23,6 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(TeamValidator))]
+        [SecuredOperation("admin,editör")]
         public IResult Add(Team team)
         {
             IResult result = BusinessRules.Run(CheckIfTeamNameExist(team.TeamName));
@@ -39,7 +42,7 @@ namespace Business.Concrete
             _teamDal.Delete(team);
             return new SuccessResult();
         }
-
+        [CacheAspect]
         public IDataResult<List<Team>> GetAll()
         {
             return new SuccessDataResult<List<Team>>(_teamDal.GetAll(),Messages.TeamList);

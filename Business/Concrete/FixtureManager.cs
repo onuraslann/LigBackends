@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Caching;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -33,6 +34,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.FixtureDelete);
         }
 
+        [CacheAspect]
         public IDataResult<List<Fixture>> GetAll()
         {
             return new SuccessDataResult<List<Fixture>>(_fixtureDal.GetAll(),Messages.FixtureList);      

@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Caching;
 using Core.Aspects.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
@@ -24,6 +25,7 @@ namespace Business.Concrete
 
      
         [ValidationAspect(typeof(PlayerValidator))]
+        [CacheRemoveAspect("IPlayerService.Get")]
         public IResult Add(Player player)
         {
             IResult result = BusinessRules.Run(CheckIfLeagueId(player.LeagueId), CheckIfTeamId(player.TeamsId));
@@ -40,7 +42,7 @@ namespace Business.Concrete
             _playerDal.Delete(player);
             return new SuccessResult(Messages.PlayerDeleted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Player>> GetAll()
         {
             return new SuccessDataResult<List<Player>>(_playerDal.GetAll());
